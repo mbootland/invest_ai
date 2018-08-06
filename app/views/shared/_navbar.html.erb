@@ -1,0 +1,17 @@
+<% if current_user %>
+  <nav class='nav-bar'>
+    <div class='container'>
+      <div class='navbar-header'>
+        <a class='navbar-brand logo'>Invest.ai</a>
+      </div>
+      <div>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navi" %>
+        <%= link_to 'Home', 'root_path', class: "navi" %>
+        <%= link_to 'Projects', 'news_index_path', class: "navi" %>
+        <%= link_to 'Institute of English and Music', 'ioem', class: "navi" %>
+        <%= link_to 'Bio', 'projects_path', class: "navi" %>
+        <%= link_to 'Users', users_path, class: "navi" %>
+      </div>
+    </div>
+  </nav>
+<% end %>

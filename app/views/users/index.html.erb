@@ -1,0 +1,37 @@
+<%= render partial: 'shared/notice' %>
+<div class='page-header title-colour'>
+  Users
+</div>
+<% if can? :create, User %>
+  <div>
+    <%= link_to new_user_path, class: 'btn btn-primary' do %>
+      <span class='glyphicon glyphicon-plus'></span>
+      New User
+    <% end %>
+  </div>
+<% end %>
+</br>
+<%= render layout: '/shared/widget', locals: { title: 'Users' } do %>
+  <div class='table-responsive'>
+    <table class='table table-bordered title-colour'>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <td><%= link_to user.email, user %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.role %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
